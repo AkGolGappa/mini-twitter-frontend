@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngFor="let user of get">
+        <div class="card border-secondary mb-3 my-auto mx-auto"
+            style="max-width: 30rem;margin-top: 10em;">
+            
+            <div class="card-header"><img src="../../../assets/images/face.png" alt="...">{{user.userName}}</div>
+            <div class="card-body">
+                <h5 class="card-title">on {{user.created | date:'medium'}}</h5>
+                <p class="card-text">{{user.tweet}}</p>
+            </div>
+            <div class="card-header bg-light">
+                <p *ngFor="let reply of user.replies|keyvalue">{{reply.key}}
+                    Replied :
+                    {{reply.value}}</p>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

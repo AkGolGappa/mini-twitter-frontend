@@ -1,0 +1,88 @@
+<nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand mb-0 h1 center">Tweet App</span>
+  </nav>
+    <div class="container">
+    
+      <div class="card" style="margin-top:40px;max-width: 60rem;">
+        <h1 class="text-blue mx-auto my-auto" style="margin-top:10px;">Register</h1>
+        <div class="card-body">
+          <form ngNativeValidate (ngSubmit)="register()">
+    
+            <div class="row">
+              <div class="col-6">
+                <label for="exampleInputEmail1">First Name</label>
+                <input type="text" class="form-control" name="firstName"
+                  id="firstName" [(ngModel)]="firstName" required>
+              </div>
+              <div class="col-6">
+                <label for="exampleInputEmail1">Last name </label>
+                <input type="text" class="form-control" name="lastName"
+                  id="lastName" [(ngModel)]="lastName" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" name="email" id="email"
+                  (keyup)="onKeyEmail()" [(ngModel)]="email" required>
+                <small *ngIf="isEmail" style="color: red;">Email has been already
+                  registered</small>
+              </div>
+              <!-- <div class="col-sm-4">
+                <label for="exampleInputEmail1">Date of Birth</label>
+                <input type="text" class="form-control" name="dob" id="dob"
+                [(ngModel)]="dob" placeholder="yyyy-mm-dd" required>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="exampleInputEmail1">Password</label>
+                <input type="password" (blur)="onpass()" class="form-control"
+                  name="password" id="password" [(ngModel)]="password" required>
+              </div>
+              <div class="col">
+                <label for="exampleInputEmail1">Confirm Password</label>
+                <input type="password" class="form-control"
+                  (blur)="onCheckPassword()"
+                  name="confirmPassword" id="confirmPassword"
+                  [(ngModel)]="confirmPassword" required>
+                <small *ngIf="isPassword" style="color: red;">Retype correct
+                  password</small>
+              </div>
+              <div class="col">
+                <label for="exampleInputEmail1">contact</label>
+                <input type="number" class="form-control" name="contactNumber"
+                  maxlength="10" minlength="10" id="contactNumber"
+                  [(ngModel)]="contactNumber" required>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+    
+              <div class="col"></div>
+              <div class="form-group">
+                <!-- <div class="col">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div> -->
+              </div>
+            </div>
+    
+            <button type="submit" *ngIf='validForm' class="btn btn-primary">Register</button>
+            <button type="submit" *ngIf='!validForm' class="btn btn-primary"
+              disabled>Register</button>
+    
+          </form>
+          <small>Already registered <a href="#">login here !</a></small>
+        </div>
+    
+      </div>
+      <div *ngIf = "isSuccess" style="color: chartreuse;"> Registration Successfull </div> 
+    
+    </div>
+    <!-- <app-footer></app-footer> -->
