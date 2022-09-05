@@ -27,8 +27,7 @@ export class PostTweetComponent implements OnInit {
           alert("Tweet Saved");
           this.tweetText="";
           this.router.navigate(["/navbar"])
-          this.ngOnInit();
-          
+          this.ngOnInit(); 
         }
       },
 

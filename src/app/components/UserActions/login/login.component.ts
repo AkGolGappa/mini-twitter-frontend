@@ -30,8 +30,12 @@ export class LoginComponent implements OnInit {
     this.userService.loginUser(login).subscribe(
       (response) => {
         this.get = response;
+        if(this.get === "Login Success") {
           this.router.navigate(['/post/']);
           localStorage.setItem('userId',JSON.stringify(this.userId));
+        } else {
+          this.inValidLogin=true;
+        }
       },
      (error) => {
         this.err = error;

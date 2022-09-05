@@ -26,5 +26,4 @@ export class NavbarComponent implements OnInit {
   postTweet(){
     this.router.navigate(['/post']);
   }
-
 }

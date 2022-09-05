@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TweetService } from 'src/app/service/tweet.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-my-tweets',
@@ -23,7 +24,6 @@ export class MyTweetsComponent implements OnInit {
           this.message = "No tweet found"
         }
       },
-      // (response) => { console.log(response); },
       (error) => {
         console.log(error);
         this.get = error;
@@ -36,12 +36,17 @@ export class MyTweetsComponent implements OnInit {
       (response) => {
         this.get = response;
         if (this.get.statusCode = 200) {
-          alert("tweet Deleted")
+          alert("tweet Deleted");
         }
       },
-      // (response) => { console.log(response); },
       (error) => { console.log(error); });
 
 
+  }
+  getTimeInAgoformat(date:Date) {
+    if (date != null) {
+      return moment(date).fromNow();
+    }
+    return null;
   }
 }

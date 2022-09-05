@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TweetService } from 'src/app/service/tweet.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -16,6 +17,12 @@ export class TweetComponent implements OnInit {
       (response) => { this.get = response; },
       // (response) => { console.log(response); },
       (error) => { console.log(error); });
+  }
+  getTimeInAgoformat(date:Date) {
+    if (date != null) {
+      return moment(date).fromNow();
+    }
+    return "";
   }
   
 }
