@@ -7,20 +7,20 @@ import { Users } from '../model/users';
   providedIn: 'root'
 })
 export class UserServiceService {
-  baseUrl = 'http://localhost:8085/api/v1.0/tweets';
+  baseUrl = 'https://mini-twitter-backend.azurewebsites.net/api/v1.0/tweets';
   constructor(private http:HttpClient) { }
 
   getAllUsers(){
-    return this.http.get("http://localhost:8085/api/v1.0/tweets/users/all");
+    return this.http.get("https://mini-twitter-backend.azurewebsites.net/api/v1.0/tweets/users/all");
   }
   loginUser(user: Login){
-    return this.http.get("http://localhost:8085/api/v1.0/tweets/login?emailId="+user.userId+"&password="+user.password,{responseType : "text"});
+    return this.http.get("https://mini-twitter-backend.azurewebsites.net/api/v1.0/tweets/login?emailId="+user.userId+"&password="+user.password,{responseType : "text"});
   }
   forgotPassword(user:Login){
-    return this.http.get("http://localhost:8085/api/v1.0/tweets/forgot?userName="+user.userId+"&newPassword="+user.password,{responseType : "text"});
+    return this.http.get("https://mini-twitter-backend.azurewebsites.net/api/v1.0/tweets/forgot?userName="+user.userId+"&newPassword="+user.password,{responseType : "text"});
   }
   registserUser(user: Users){
-    return this.http.post<any>("http://localhost:8085/api/v1.0/tweets/register",user);
+    return this.http.post<any>("https://mini-twitter-backend.azurewebsites.net/api/v1.0/tweets/register",user);
   }
   
 }
